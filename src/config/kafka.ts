@@ -26,6 +26,7 @@ export class KafkaConsumer implements kafkaInterface {
 
         await this.consumer.run({
             eachMessage: async ({ topic, partition, message }: EachMessagePayload) => {
+              console.log('hello',message.value.toString());
               switch(topic){
                 case "product":
                     await handleProductUpdate(message.value.toString());

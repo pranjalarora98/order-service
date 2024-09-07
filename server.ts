@@ -10,8 +10,8 @@ const startServer = async () => {
 
   try {
     await connectDB();
-    await broker.connect(); 
-    await broker.consumeMessage(['products']);
+    await broker.connectConsumer(); 
+    await broker.consumeMessage(['product']);
     app
       .listen(PORT, () => console.log(`Listening on port ${PORT}`))
       .on("error", (err) => {
